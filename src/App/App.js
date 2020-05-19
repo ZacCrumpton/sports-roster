@@ -1,13 +1,21 @@
 import React from 'react';
 import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-    <h2>Sports Roster</h2>
-    <button className="btn btn-dark"><i className="fas fa-rocket"></i></button>
-  </div>
-  );
+import Auth from '../components/Auth/Auth';
+import MyNavbar from '../components/MyNavbar/MyNavbar';
+import Team from '../components/Team/Team';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+      <h2>Sports Roster</h2>
+      <MyNavbar/>
+      <Auth/>
+      <Team/>
+    </div>
+    );
+  }
 }
 
 export default App;
