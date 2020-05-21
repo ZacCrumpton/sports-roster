@@ -7,6 +7,7 @@ import fbConnection from '../helpers/data/connection';
 import Auth from '../components/Auth/Auth';
 import MyNavbar from '../components/MyNavbar/MyNavbar';
 import TeamContainer from '../components/TeamContainer/TeamContainer';
+import SingleTeam from '../components/SingleTeam/SingleTeam';
 
 import './App.scss';
 
@@ -15,6 +16,7 @@ fbConnection();
 class App extends React.Component {
   state = {
     authed: false,
+    singleTeamId: '',
   }
 
   componentDidMount() {
@@ -31,13 +33,19 @@ class App extends React.Component {
     this.removeListener();
   }
 
+  setSingleTeam = (teamId) => {
+    this.setState({ singleTeamId: teamId });
+  }
+
   render() {
-    const { authed } = this.state;
+    const { authed, singleTeamId } = this.state;
 
     const loadComponent = () => {
       let componentToLoad = '';
-      if (authed) {
-        componentToLoad = <TeamContainer />;
+      if (authed && singleTeamId.length === 0) {
+        componentToLoad = <TeamContainer setSingleTeam={this.setSingleTeam}/>;
+      } else if (authed && singleTeamId.length > 0) {
+        componentToLoad = <SingleTeam teamId={singleTeamId} setSingleTeam={this.setSingleTeam}/>;
       } else {
         componentToLoad = <Auth />;
       }

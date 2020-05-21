@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import teamData from '../../helpers/data/teamData';
 import authData from '../../helpers/data/authData';
@@ -7,6 +8,10 @@ import Team from '../Team/Team';
 import './TeamContainer.scss';
 
 class TeamContainer extends React.Component {
+  static propTypes = {
+    setSingleTeam: PropTypes.func.isRequired,
+  }
+
   state = {
     teams: [],
   }
@@ -19,7 +24,8 @@ class TeamContainer extends React.Component {
 
   render() {
     const { teams } = this.state;
-    const makeTeams = teams.map((team) => <Team key={team.id} team={team}/>);
+    const { setSingleTeam } = this.props;
+    const makeTeams = teams.map((team) => <Team key={team.id} team={team} setSingleTeam={setSingleTeam}/>);
 
     return (
       <div className="TeamContainer">
