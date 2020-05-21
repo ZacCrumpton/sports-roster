@@ -1,0 +1,20 @@
+{
+  "team1": {
+    "name": "Besaid Aurochs",
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Besaid_Aurochs?file=Besaid_Aurochs_Flag-render-ffx.png",
+    "description": "a blitzball team in Final Fantasy X and Final Fantasy X-2 that represent the island of Besaid. They are considered the worst team in Spira, and are mostly concerned with doing their best as opposed to winning.",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3"
+  },
+  "team2": {
+    "name": "Luca Goers",
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Luca_Goers?file=Luca_Goers_Flag-render-ffx.png",
+    "description": "a blitzball team from Final Fantasy X. They represent Luca, the second biggest city in Spira and home to the only blitzball stadium. Thus, the Goers are the most widely beloved team in Spira, and are also often considered the best, having won several tournaments, even earning the bias of the commentators, Bobba and Jimma.",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3"
+  },
+  "team3": {
+    "name": "Al Bhed Psyches",
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Al_Bhed_Psyches?file=Al_Bhed_Psyches_Flag-render-ffx.png",
+    "description": "a blitzball team representing the Al Bhed race of Spira. They are considered a ridiculously overpowered team when played against regularly.",
+    "uid": "12345"
+  }
+}
