@@ -6,7 +6,7 @@ import fbConnection from '../helpers/data/connection';
 
 import Auth from '../components/Auth/Auth';
 import MyNavbar from '../components/MyNavbar/MyNavbar';
-import Team from '../components/Team/Team';
+import TeamContainer from '../components/TeamContainer/TeamContainer';
 
 import './App.scss';
 
@@ -37,7 +37,7 @@ class App extends React.Component {
     const loadComponent = () => {
       let componentToLoad = '';
       if (authed) {
-        componentToLoad = <Team />;
+        componentToLoad = <TeamContainer />;
       } else {
         componentToLoad = <Auth />;
       }
@@ -47,7 +47,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <MyNavbar authed={authed}/>
-        <h1>React Pinterest</h1>
         {loadComponent()}
       </div>
     );
