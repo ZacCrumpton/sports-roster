@@ -1,0 +1,142 @@
+{
+  "player1": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Tidus?file=FFX_Artwork_Tidus.png",
+    "title": "Tidus",
+    "description": "Star player for the Besaid Aurochs, formerly of the Zanarkand Abes.",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team1"
+  },
+  "player2": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Wakka?file=FFX_Wakka_Art.png",
+    "title": "Wakka",
+    "description": "Team captain and Right Forward of the Besaid Aurochs",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team1"
+  },
+  "player3": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Datto?file=Datto.jpg",
+    "title": "Datto",
+    "description": "Left Foward for the Besaid Aurochs",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team1"
+  },
+  "player4": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Letty_(Final_Fantasy_X)?file=Letty.jpg",
+    "title": "Letty",
+    "description": "Midfielder for the Besaid Aurochs",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team1"
+  },
+  "player5": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Jassu?file=Jassu.jpg",
+    "title": "Jassu",
+    "description": "Left Defender for the Besaid Aurochs",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team1"
+  },
+  "player6": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Botta?file=Botta.jpg",
+    "title": "Botta",
+    "description": "Right Defender for the Besaid Aurochs",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team1"
+  },
+  "player7": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Keepa?file=Keepa.jpg",
+    "title": "Keepa",
+    "description": "Goal Keeper for the Besaid Aurochs",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team1"
+  },
+  "player8": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Chappu?file=Chappu.png",
+    "title": "Chappu",
+    "description": "Late starting Left forward for the Besaid Aurochs. Chappu died tragically to Sin.",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team1"
+  },
+  "player9": {
+    "imageUrl": "",
+    "title": "Bickson",
+    "description": "Team Captain and Left Forward for the Luca Goers",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team2"
+  },
+  "player10": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Abus?file=Abus.jpg",
+    "title": "Abus",
+    "description": "Right Forward for the Luca Goers",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team2"
+  },
+  "player11": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Graav?file=Graav.jpg",
+    "title": "Graav",
+    "description": "Midfielder for the Luca Goers",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team2"
+  },
+  "player12": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Doram?file=Doram.jpg",
+    "title": "Doram",
+    "description": "Left Defender for the Luca Goers",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team2"
+  },
+  "player13": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Balgerda?file=Balgerda.jpg",
+    "title": "Balgerda",
+    "description": "Right Defender for the Luca Goers",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team2"
+  },
+  "player14": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Raudy?file=Blitzballgame.jpeg",
+    "title": "Raudy",
+    "description": "Goal Keeper for the Luca Goers",
+    "uid": "OWWIypVjSEVEH4oYbm4lPSSvxXC3",
+    "teamId": "team2"
+  },
+  "player15": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Eigaar?file=Eigaar.jpg",
+    "title": "Eigaar",
+    "description": "Starting Left Forward for the Al Bhed Psyches",
+    "uid": "12345",
+    "teamId": "team3"
+  },
+  "player16": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Blappa?file=Blappa2.jpg",
+    "title": "Blappa",
+    "description": "Right Forward for the Al Bhed Psyches",
+    "uid": "12345",
+    "teamId": "team3"
+  },
+  "player17": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Berrik?file=Berrik.jpg",
+    "title": "Berrik",
+    "description": "Team Captain and Midfielder for the Al Bhed Psyches",
+    "uid": "12345",
+    "teamId": "team3"
+  },
+  "player18": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Judda?file=Judda.jpg",
+    "title": "Judda",
+    "description": "Left Defender for the Al Bhed Psyches",
+    "uid": "12345",
+    "teamId": "team3"
+  },
+  "player19": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Lakkam?file=Lakkam.jpg",
+    "title": "Lakkam",
+    "description": "Right Defender for the Al Bhed Psyches",
+    "uid": "12345",
+    "teamId": "team"
+  },
+  "player20": {
+    "imageUrl": "https://finalfantasy.fandom.com/wiki/Nimrook?file=Nimrook.jpg",
+    "title": "Nimrook",
+    "description": "Goal Keeper for the Al Bhed Psyches",
+    "uid": "12345",
+    "teamId": "team3"
+  }
+}
