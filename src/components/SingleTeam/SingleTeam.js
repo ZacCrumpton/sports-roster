@@ -18,7 +18,7 @@ class SingleTeam extends React.Component {
     players: [],
   }
 
-  componentDidMount() {
+  getInfo = () => {
     const { teamId } = this.props;
     teamData.getSingleTeam(teamId)
       .then((request) => {
@@ -30,11 +30,21 @@ class SingleTeam extends React.Component {
       .catch((err) => console.error('unable to get single team', err));
   }
 
+  componentDidMount() {
+    this.getInfo();
+  }
+
+  removePlayer = (playerId) => {
+    playerData.deletePlayer(playerId)
+      .then(() => this.getInfo())
+      .catch((err) => console.error('could not delete player', err));
+  }
+
   render() {
     const { setSingleTeam } = this.props;
     const { team, players } = this.state;
 
-    const makePlayer = players.map((p) => <Player key={p.id} player={p}/>);
+    const makePlayer = players.map((p) => <Player key={p.id} player={p} removePlayer={this.removePlayer}/>);
 
     return (
       <div className="SingleTeam">
