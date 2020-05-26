@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import teamData from '../../helpers/data/teamData';
 import authData from '../../helpers/data/authData';
 import Team from '../Team/Team';
+import TeamForm from '../TeamForm/TeamForm';
 
 import './TeamContainer.scss';
 import smash from '../../helpers/data/smash';
@@ -15,6 +16,7 @@ class TeamContainer extends React.Component {
 
   state = {
     teams: [],
+    formOpen: false,
   }
 
   getAllTeams = () => {
@@ -34,13 +36,15 @@ class TeamContainer extends React.Component {
   }
 
   render() {
-    const { teams } = this.state;
+    const { teams, formOpen } = this.state;
     const { setSingleTeam } = this.props;
+
     const makeTeams = teams.map((team) => <Team key={team.id} team={team} setSingleTeam={setSingleTeam} removeTeam={this.removeTeam}/>);
 
     return (
       <div className="TeamContainer">
-        <h1>TEAMS</h1>
+        <button className="btn btn-dark" onClick={() => this.setState({ formOpen: true })}>Create Team</button>
+        { formOpen ? <TeamForm/> : '' }
         <div className="d-flex flex-wrap">
           { makeTeams }
         </div>
