@@ -42,6 +42,15 @@ class SingleTeam extends React.Component {
       .catch((err) => console.error('could not delete player', err));
   }
 
+  saveNewPlayer = (newPlayer) => {
+    playerData.savePlayer(newPlayer)
+      .then(() => {
+        this.getInfo();
+        this.setState({ formOpen: false });
+      })
+      .catch((err) => console.error('unable to save new player: ', err));
+  }
+
   render() {
     const { setSingleTeam, teamId } = this.props;
     const { team, players, formOpen } = this.state;
@@ -50,12 +59,13 @@ class SingleTeam extends React.Component {
 
     return (
       <div className="SingleTeam">
-        <button className="btn btn-danger" onClick={() => { setSingleTeam(''); }}>X</button>
-        <h2>Single Team View</h2>
-        <button className="btn btn-dark" onClick={() => this.setState({ formOpen: true })}>Add Player</button>
+        <div className="d-flex flex-wrap align-content-center">
+          <button className="btn btn-danger" onClick={() => { setSingleTeam(''); }}>X</button>
+          <button className="btn btn-dark" onClick={() => this.setState({ formOpen: true })}>Add Player</button>
+        </div>
         <h2>{team.name}</h2>
         <img src={team.imageUrl} alt="teams"/>
-        { formOpen ? <PlayerForm teamId={teamId}/> : '' }
+        { formOpen ? <PlayerForm teamId={teamId} saveNewPlayer={this.saveNewPlayer} /> : '' }
         <div className="d-flex flex-wrap">
           {makePlayer}
         </div>

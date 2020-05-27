@@ -9,6 +9,7 @@ import authData from '../../helpers/data/authData';
 class PlayerForm extends React.Component {
   static propTypes = {
     teamId: PropTypes.string.isRequired,
+    saveNewPlayer: PropTypes.func.isRequired,
   }
 
   state = {
@@ -35,7 +36,7 @@ pImgChange = (e) => {
 savePlayer = (e) => {
   e.preventDefault();
   const { playerImg, playerTitle, playerDesc } = this.state;
-  const { teamId } = this.props;
+  const { teamId, saveNewPlayer } = this.props;
   const newPlayer = {
     teamId,
     title: playerTitle,
@@ -43,7 +44,7 @@ savePlayer = (e) => {
     description: playerDesc,
     uid: authData.getUid(),
   };
-  console.log('new player', newPlayer);
+  saveNewPlayer(newPlayer);
 }
 
 render() {
@@ -56,12 +57,12 @@ render() {
             <input type="text" className="form-control" id="player-title" placeholder="Name" value={playerTitle} onChange={this.pTitleChange} />
           </div>
           <div className="form-group">
-            <label htmlFor="player-desc">Description</label>
-            <input type="text" className="form-control" id="player-desc" placeholder="Description" value={playerDesc} onChange={this.pDescChange} />
+            <label htmlFor="player-img">Player Image</label>
+            <input type="text" className="form-control" id="player-img" placeholder="Image Url" value={playerImg} onChange={this.pImgChange} />
           </div>
           <div className="form-group">
-            <label htmlFor="player-img">Team Logo</label>
-            <input type="text" className="form-control" id="player-img" placeholder="Team Logo" value={playerImg} onChange={this.pImgChange} />
+            <label htmlFor="player-desc">Description</label>
+            <input type="text" className="form-control" id="player-desc" placeholder="Description" value={playerDesc} onChange={this.pDescChange} />
           </div>
           <button type="submit" className="btn btn-primary" onClick={this.savePlayer}>Save Player</button>
         </form>
