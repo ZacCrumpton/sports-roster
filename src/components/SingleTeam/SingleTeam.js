@@ -43,7 +43,7 @@ class SingleTeam extends React.Component {
   }
 
   render() {
-    const { setSingleTeam } = this.props;
+    const { setSingleTeam, teamId } = this.props;
     const { team, players, formOpen } = this.state;
 
     const makePlayer = players.map((p) => <Player key={p.id} player={p} removePlayer={this.removePlayer}/>);
@@ -55,7 +55,7 @@ class SingleTeam extends React.Component {
         <button className="btn btn-dark" onClick={() => this.setState({ formOpen: true })}>Add Player</button>
         <h2>{team.name}</h2>
         <img src={team.imageUrl} alt="teams"/>
-        { formOpen ? <PlayerForm /> : '' }
+        { formOpen ? <PlayerForm teamId={teamId}/> : '' }
         <div className="d-flex flex-wrap">
           {makePlayer}
         </div>
