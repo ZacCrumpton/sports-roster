@@ -6,6 +6,7 @@ import teamData from '../../helpers/data/teamData';
 import playerData from '../../helpers/data/playerData';
 
 import Player from '../Player/Player';
+import PlayerForm from '../PlayerForm/PlayerForm';
 
 class SingleTeam extends React.Component {
   static propTypes = {
@@ -16,6 +17,7 @@ class SingleTeam extends React.Component {
   state = {
     team: {},
     players: [],
+    formOpen: false,
   }
 
   getInfo = () => {
@@ -42,7 +44,7 @@ class SingleTeam extends React.Component {
 
   render() {
     const { setSingleTeam } = this.props;
-    const { team, players } = this.state;
+    const { team, players, formOpen } = this.state;
 
     const makePlayer = players.map((p) => <Player key={p.id} player={p} removePlayer={this.removePlayer}/>);
 
@@ -50,8 +52,10 @@ class SingleTeam extends React.Component {
       <div className="SingleTeam">
         <button className="btn btn-danger" onClick={() => { setSingleTeam(''); }}>X</button>
         <h2>Single Team View</h2>
+        <button className="btn btn-dark" onClick={() => this.setState({ formOpen: true })}>Add Player</button>
         <h2>{team.name}</h2>
         <img src={team.imageUrl} alt="teams"/>
+        { formOpen ? <PlayerForm /> : '' }
         <div className="d-flex flex-wrap">
           {makePlayer}
         </div>
