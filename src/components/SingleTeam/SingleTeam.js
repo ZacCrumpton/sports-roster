@@ -6,6 +6,7 @@ import teamData from '../../helpers/data/teamData';
 import playerData from '../../helpers/data/playerData';
 
 import Player from '../Player/Player';
+import PlayerForm from '../PlayerForm/PlayerForm';
 
 class SingleTeam extends React.Component {
   static propTypes = {
@@ -16,6 +17,7 @@ class SingleTeam extends React.Component {
   state = {
     team: {},
     players: [],
+    formOpen: false,
   }
 
   getInfo = () => {
@@ -40,18 +42,30 @@ class SingleTeam extends React.Component {
       .catch((err) => console.error('could not delete player', err));
   }
 
+  saveNewPlayer = (newPlayer) => {
+    playerData.savePlayer(newPlayer)
+      .then(() => {
+        this.getInfo();
+        this.setState({ formOpen: false });
+      })
+      .catch((err) => console.error('unable to save new player: ', err));
+  }
+
   render() {
-    const { setSingleTeam } = this.props;
-    const { team, players } = this.state;
+    const { setSingleTeam, teamId } = this.props;
+    const { team, players, formOpen } = this.state;
 
     const makePlayer = players.map((p) => <Player key={p.id} player={p} removePlayer={this.removePlayer}/>);
 
     return (
       <div className="SingleTeam">
-        <button className="btn btn-danger" onClick={() => { setSingleTeam(''); }}>X</button>
-        <h2>Single Team View</h2>
-        <h2>{team.name}</h2>
+        <div className="d-flex flex-wrap align-content-center">
+          <button className="btn btn-danger" onClick={() => { setSingleTeam(''); }}>X</button>
+          <button className="btn btn-dark" onClick={() => this.setState({ formOpen: true })}>Add Player</button>
+        </div>
         <img src={team.imageUrl} alt="teams"/>
+        <h2>{team.name}</h2>
+        { formOpen ? <PlayerForm teamId={teamId} saveNewPlayer={this.saveNewPlayer} /> : '' }
         <div className="d-flex flex-wrap">
           {makePlayer}
         </div>
