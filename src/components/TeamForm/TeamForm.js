@@ -6,12 +6,27 @@ import authData from '../../helpers/data/authData';
 class TeamForm extends React.Component {
   static propTypes = {
     saveNewTeam: PropTypes.func.isRequired,
+    putTeam: PropTypes.func.isRequired,
+    team: PropTypes.object.isRequired,
   }
 
   state = {
     teamName: '',
     teamDesc: '',
     teamImg: '',
+    isEditing: false,
+  }
+
+  componentDidMount() {
+    const { team } = this.props;
+    if (team.name) {
+      this.setState({
+        teamName: team.name,
+        teamDesc: team.description,
+        teamImg: team.imageUrl,
+        isEditing: true,
+      });
+    }
   }
 
   saveTeam = (e) => {
@@ -42,11 +57,26 @@ imgChange = (e) => {
   this.setState({ teamImg: e.target.value });
 }
 
+updateTeam = (e) => {
+  e.preventDefault();
+  const { team, putTeam } = this.props;
+  const { teamDesc, teamName, teamImg } = this.state;
+  const updateTeam = {
+    name: teamName,
+    description: teamDesc,
+    imageUrl: teamImg,
+    uid: authData.getUid(),
+  };
+  putTeam(team.id, updateTeam);
+}
+
+
 render() {
   const {
     teamName,
     teamDesc,
     teamImg,
+    isEditing,
   } = this.state;
 
   return (
@@ -64,7 +94,10 @@ render() {
             <label htmlFor="team-img">Team Logo</label>
             <input type="text" className="form-control" id="team-img" placeholder="Team Logo" value={teamImg} onChange={this.imgChange} />
           </div>
-          <button type="submit" className="btn btn-primary" onClick={this.saveTeam}>Save Team</button>
+          { isEditing
+            ? <button type="submit" className="btn btn-primary" onClick={this.updateTeam}>Update Team</button>
+            : <button type="submit" className="btn btn-primary" onClick={this.saveTeam}>Save Team</button>
+          }
         </form>
       </div>
   );

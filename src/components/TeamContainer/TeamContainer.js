@@ -17,6 +17,7 @@ class TeamContainer extends React.Component {
   state = {
     teams: [],
     formOpen: false,
+    editTeam: {},
   }
 
   getAllTeams = () => {
@@ -44,16 +45,29 @@ class TeamContainer extends React.Component {
       .catch((err) => console.error('unable to save team: ', err));
   }
 
+  putTeam = (teamId, updatedTeam) => {
+    teamData.updateTeam(teamId, updatedTeam)
+      .then(() => {
+        this.getAllTeams();
+        this.setState({ formOpen: false, editTeam: {} });
+      })
+      .catch((err) => console.error('unable to update team:', err));
+  }
+
+  editATeam = (team) => {
+    this.setState({ formOpen: true, editTeam: team });
+  }
+
   render() {
-    const { teams, formOpen } = this.state;
+    const { teams, formOpen, editTeam } = this.state;
     const { setSingleTeam } = this.props;
 
-    const makeTeams = teams.map((team) => <Team key={team.id} team={team} setSingleTeam={setSingleTeam} removeTeam={this.removeTeam}/>);
+    const makeTeams = teams.map((team) => <Team key={team.id} team={team} setSingleTeam={setSingleTeam} editATeam={this.editATeam} removeTeam={this.removeTeam}/>);
 
     return (
       <div className="TeamContainer">
         <button className="btn btn-dark" onClick={() => this.setState({ formOpen: true })}>Create Team</button>
-        { formOpen ? <TeamForm saveNewTeam={this.saveNewTeam}/> : '' }
+        { formOpen ? <TeamForm saveNewTeam={this.saveNewTeam} team={editTeam} putTeam={this.putTeam}/> : '' }
         <div className="d-flex flex-wrap">
           { makeTeams }
         </div>

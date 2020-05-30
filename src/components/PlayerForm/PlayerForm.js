@@ -10,12 +10,27 @@ class PlayerForm extends React.Component {
   static propTypes = {
     teamId: PropTypes.string.isRequired,
     saveNewPlayer: PropTypes.func.isRequired,
+    putPlayer: PropTypes.func.isRequired,
+    player: PropTypes.object.isRequired,
   }
 
   state = {
     playerTitle: '',
     playerDesc: '',
     playerImg: '',
+    isEditing: false,
+  }
+
+  componentDidMount() {
+    const { player } = this.props;
+    if (player.title) {
+      this.setState({
+        playerTitle: player.title,
+        playerImg: player.imageUrl,
+        playerDesc: player.description,
+        isEditing: true,
+      });
+    }
   }
 
 pTitleChange = (e) => {
@@ -47,8 +62,27 @@ savePlayer = (e) => {
   saveNewPlayer(newPlayer);
 }
 
+updatePlayer = (e) => {
+  e.preventDefault();
+  const { playerImg, playerTitle, playerDesc } = this.state;
+  const { teamId, putPlayer, player } = this.props;
+  const updatedPlayer = {
+    teamId,
+    title: playerTitle,
+    imageUrl: playerImg,
+    description: playerDesc,
+    uid: authData.getUid(),
+  };
+  putPlayer(player.id, updatedPlayer);
+}
+
 render() {
-  const { playerTitle, playerImg, playerDesc } = this.state;
+  const {
+    playerTitle,
+    playerImg,
+    playerDesc,
+    isEditing,
+  } = this.state;
   return (
       <div className="PlayerForm">
         <form className="col-6 offset-3">
@@ -64,7 +98,11 @@ render() {
             <label htmlFor="player-desc">Description</label>
             <input type="text" className="form-control" id="player-desc" placeholder="Description" value={playerDesc} onChange={this.pDescChange} />
           </div>
-          <button type="submit" className="btn btn-primary" onClick={this.savePlayer}>Save Player</button>
+          {
+            isEditing
+              ? <button type="submit" className="btn btn-primary" onClick={this.updatePlayer}>Update Player</button>
+              : <button type="submit" className="btn btn-primary" onClick={this.savePlayer}>Save Player</button>
+          }
         </form>
       </div>
   );
