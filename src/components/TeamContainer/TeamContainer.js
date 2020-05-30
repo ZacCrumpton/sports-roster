@@ -67,8 +67,9 @@ class TeamContainer extends React.Component {
     return (
       <div className="TeamContainer">
         <button className="btn btn-dark" onClick={() => this.setState({ formOpen: true })}>Create Team</button>
+
         { formOpen ? <TeamForm saveNewTeam={this.saveNewTeam} team={editTeam} putTeam={this.putTeam}/> : '' }
-        <div className="d-flex flex-wrap">
+        <div className="allTeamCards">
           { makeTeams }
         </div>
       </div>

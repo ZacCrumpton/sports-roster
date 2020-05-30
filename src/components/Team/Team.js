@@ -33,8 +33,8 @@ class Team extends React.Component {
     const { team } = this.props;
 
     return (
-      <div className="Team col-4">
-        <div className="card">
+      <div className="Team">
+        <div className="card teamCard">
          <img className="card-img-top" src={team.imageUrl} alt="teams"/>
           <div className="card-body">
             <h5 className="card-title">{team.name}</h5>

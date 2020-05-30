@@ -84,8 +84,9 @@ class SingleTeam extends React.Component {
         </div>
         <img src={team.imageUrl} alt="teams"/>
         <h2>{team.name}</h2>
+
         { formOpen ? <PlayerForm teamId={teamId} saveNewPlayer={this.saveNewPlayer} player={editPlayer} putPlayer={this.putPlayer} /> : '' }
-        <div className="d-flex flex-wrap">
+        <div className="allPlayerCards">
           {makePlayer}
         </div>
       </div>
