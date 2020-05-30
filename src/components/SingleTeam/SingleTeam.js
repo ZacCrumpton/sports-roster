@@ -63,8 +63,8 @@ class SingleTeam extends React.Component {
           <button className="btn btn-danger" onClick={() => { setSingleTeam(''); }}>X</button>
           <button className="btn btn-dark" onClick={() => this.setState({ formOpen: true })}>Add Player</button>
         </div>
-        <h2>{team.name}</h2>
         <img src={team.imageUrl} alt="teams"/>
+        <h2>{team.name}</h2>
         { formOpen ? <PlayerForm teamId={teamId} saveNewPlayer={this.saveNewPlayer} /> : '' }
         <div className="d-flex flex-wrap">
           {makePlayer}
